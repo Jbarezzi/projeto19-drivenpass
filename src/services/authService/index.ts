@@ -1,1 +1,2 @@
-export * as authService from "./signupService";
+export * from "./signupService";
+export * from "./signinService";
