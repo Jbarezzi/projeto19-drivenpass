@@ -12,3 +12,13 @@ credentialRouter.post(
   tokenValidator,
   credentialController.create
 );
+credentialRouter.get(
+  "/credentials",
+  tokenValidator,
+  credentialController.getAllTitles
+);
+credentialRouter.get(
+  "/credentials/:id",
+  tokenValidator,
+  credentialController.getCredential
+);
