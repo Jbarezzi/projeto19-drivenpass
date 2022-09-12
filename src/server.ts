@@ -3,7 +3,7 @@ import "express-async-errors";
 import dotenv from "dotenv";
 import cors from "cors";
 import { router } from "./routers";
-import errorHandler from "middlewares/errorHandler";
+import errorHandler from "./middlewares/errorHandler";
 
 dotenv.config();
 
