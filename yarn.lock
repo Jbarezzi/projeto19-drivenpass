@@ -297,6 +297,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/cryptr@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "@types/cryptr@npm:4.0.1"
+  checksum: 65c55557c202ebd10bdd3f230da3480d5fc6a817e15c74a266a282fa52acfdfd077caa806437f42f2e5de4526a44ae58febb85b8ae64ef56905947386d7fa979
+  languageName: node
+  linkType: hard
+
 "@types/express-serve-static-core@npm:^4.17.18":
   version: 4.17.30
   resolution: "@types/express-serve-static-core@npm:4.17.30"
@@ -350,7 +357,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:^18.7.16":
   version: 18.7.16
   resolution: "@types/node@npm:18.7.16"
   checksum: 01a3d35c764a3f0e7370b56e1ad4203731131883c65784e020009014171b3f53c4649cde6c7aa4f1026b907ee87ef6ae6ece2bc518151dc7b81100fe8b1db3ad
@@ -962,6 +969,13 @@ __metadata:
     shebang-command: ^2.0.0
     which: ^2.0.1
   checksum: 671cc7c7288c3a8406f3c69a3ae2fc85555c04169e9d611def9a675635472614f1c0ed0ef80955d5b6d4e724f6ced67f0ad1bb006c2ea643488fcfef994d7f52
+  languageName: node
+  linkType: hard
+
+"cryptr@npm:^6.0.3":
+  version: 6.0.3
+  resolution: "cryptr@npm:6.0.3"
+  checksum: 06f999498132c87acfb85a16653088b0c56bf42f923ef05227f8858d79cbb751c530333e4999adbc3dc92a90d5ec09fa7d3a3f91a0351e2e3574b0bef838c9fd
   languageName: node
   linkType: hard
 
@@ -2958,12 +2972,15 @@ __metadata:
     "@prisma/client": 4.3.1
     "@types/bcrypt": ^5.0.0
     "@types/cors": ^2.8.12
+    "@types/cryptr": ^4.0.1
     "@types/express": ^4.17.13
     "@types/jsonwebtoken": ^8.5.9
+    "@types/node": ^18.7.16
     "@typescript-eslint/eslint-plugin": ^5.36.2
     "@typescript-eslint/parser": ^5.36.2
     bcrypt: ^5.0.1
     cors: ^2.8.5
+    cryptr: ^6.0.3
     dotenv: ^16.0.2
     eslint: ^8.23.0
     eslint-config-airbnb-base: ^15.0.0
