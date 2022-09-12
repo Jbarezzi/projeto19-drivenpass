@@ -18,6 +18,9 @@ function errorHandler(
   if (error.type === "error_unauthorized")
     return res.status(401).send({ message: error.message });
 
+  if (error.type === "error_forbidden")
+    return res.status(403).send({ message: error.message });
+
   res.sendStatus(500);
 }
 
