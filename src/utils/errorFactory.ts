@@ -1,7 +1,7 @@
 export function notFoundError(entity: string) {
   return {
     type: "error_not_found",
-    message: `Não foi possível encontrar ${entity}.`,
+    message: `${entity} was not found.`,
   };
 }
 
@@ -15,7 +15,7 @@ export function conflictError(message: string) {
 export function unauthorizedError(entity: string) {
   return {
     type: "error_unauthorized",
-    message: `${entity} está incorreto.`,
+    message: `There is no ${entity} in the request.`,
   };
 }
 
@@ -29,6 +29,6 @@ export function unprocessableEntityError(messages: string[]) {
 export function forbiddenError() {
   return {
     type: "error_forbidden",
-    message: "O email ou senha estão incorretos.",
+    message: "Email or password are invalid.",
   };
 }
