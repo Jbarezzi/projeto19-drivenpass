@@ -1,9 +1,10 @@
 import { Request, Response } from "express";
-import { ICreateCredential } from "../interfaces/credentialInterfaces";
+import { IRequestCredentialData } from "../interfaces/credentialInterfaces";
 import * as credentialController from "../services/credentialService";
 
 export async function create(req: Request, res: Response) {
-  const credential: ICreateCredential = req.body;
-  await credentialController.create(credential);
+  const credential: IRequestCredentialData = req.body;
+  const { id }: { id: number } = res.locals.payload.id;
+  await credentialController.create(credential, id);
   res.sendStatus(201);
 }
