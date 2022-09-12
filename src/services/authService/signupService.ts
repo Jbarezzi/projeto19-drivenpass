@@ -21,8 +21,8 @@ async function verifyIfEmailExists(email: string) {
 }
 
 async function encryptPassword(password: string) {
-  const saltRounds = 10;
-  const encryptedPassword = bcrypt.hash(password, saltRounds);
+  const SALT_ROUNDS = 10;
+  const encryptedPassword = bcrypt.hash(password, SALT_ROUNDS);
   return encryptedPassword;
 }
 
