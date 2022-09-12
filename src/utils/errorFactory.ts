@@ -25,3 +25,10 @@ export function unprocessableEntityError(messages: string[]) {
     message: messages,
   };
 }
+
+export function forbiddenError() {
+  return {
+    type: "error_forbidden",
+    message: "O email ou senha estão incorretos.",
+  };
+}
