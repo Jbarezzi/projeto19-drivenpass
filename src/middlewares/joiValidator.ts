@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { Schema } from "joi";
-import * as errorFactory from "utils/errorFactory";
+import * as errorFactory from "../utils/errorFactory";
 
 export const joiValidator = (schema: Schema) => {
   return (req: Request, _res: Response, next: NextFunction) => {

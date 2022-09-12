@@ -1,7 +1,7 @@
 import { Router } from "express";
-import * as authController from "controllers/authController";
-import { joiValidator } from "middlewares/joiValidator";
-import { signupSchema } from "schemas/authSchemas";
+import { joiValidator } from "../middlewares/joiValidator";
+import { signupSchema } from "../schemas/authSchemas";
+import * as authController from "../controllers/authController";
 
 export const authRouter = Router();
 
