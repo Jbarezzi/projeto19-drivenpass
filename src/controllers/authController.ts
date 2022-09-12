@@ -5,11 +5,11 @@ import * as authService from "../services/authService";
 export async function signup(req: Request, res: Response) {
   const newUser: ISign = req.body;
   await authService.signup(newUser);
-  res.sendStatus(204);
+  res.sendStatus(201);
 }
 
 export async function signin(req: Request, res: Response) {
   const newUser: ISign = req.body;
-  await authService.signin(newUser);
-  res.sendStatus(204);
+  const token = await authService.signin(newUser);
+  res.status(200).send(token);
 }
