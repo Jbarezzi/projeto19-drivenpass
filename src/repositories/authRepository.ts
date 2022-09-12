@@ -1,6 +1,14 @@
-import client from "database/prisma";
+import client from "../database/prisma";
+import { ISign } from "../interfaces/authInterfaces";
 
-export async function findUserByEmail(email: string) {
+export async function findByEmail(email: string) {
   const user = await client.user.findUnique({ where: { email } });
   return user;
+}
+
+export async function insert(newUser: ISign) {
+  const result = await client.user.create({ data: newUser });
+  if (result === null) {
+    throw { type: "error" };
+  }
 }
