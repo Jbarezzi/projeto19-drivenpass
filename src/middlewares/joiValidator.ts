@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { Schema } from "joi";
-import * as errorFactory from "../utils/errorFactory";
+import { unprocessableEntityError } from "../utils/errorFactory";
 
 export const joiValidator = (schema: Schema) => {
   return (req: Request, _res: Response, next: NextFunction) => {
@@ -8,7 +8,7 @@ export const joiValidator = (schema: Schema) => {
     const { error } = schema.validate(body, { abortEarly: false });
     if (error !== undefined) {
       const messages: string[] = error?.details.map((detail) => detail.message);
-      throw errorFactory.unprocessableEntityError(messages);
+      throw unprocessableEntityError(messages);
     }
     next();
   };

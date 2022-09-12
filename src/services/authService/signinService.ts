@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { ISign } from "../../interfaces/authInterfaces";
 import * as authRepository from "../../repositories/authRepository";
-import * as errorFactory from "../../utils/errorFactory";
+import { forbiddenError, notFoundError } from "../../utils/errorFactory";
 
 export async function signin(user: ISign) {
   const userRegistered = await authRepository.findByEmail(user.email);
@@ -15,18 +15,18 @@ export async function signin(user: ISign) {
 }
 
 function verifyIfUserExists(user: ISign | null) {
-  if (user === null) throw errorFactory.notFoundError("o usuário");
+  if (user === null) throw notFoundError("o usuário");
 }
 
 async function verifyIfPasswordIsCorrect(dbPassword: string, password: string) {
   const match = await bcrypt.compare(password, dbPassword);
-  if (match === false) throw errorFactory.forbiddenError();
+  if (match === false) throw forbiddenError();
 }
 
 function createJwtToken(userId: Number) {
   const payload = { id: userId };
-  const JWT_SECRET = process.env.TOKEN_SECRET ?? "";
-  const JWT_CONFIG = { expiresIn: process.env.TOKEN_EXPIRES_IN ?? "" };
+  const JWT_SECRET = process.env.TOKEN_SECRET!;
+  const JWT_CONFIG = { expiresIn: process.env.TOKEN_EXPIRES_IN! };
   const token = jwt.sign(payload, JWT_SECRET, JWT_CONFIG);
   return token;
 }

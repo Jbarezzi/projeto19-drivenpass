@@ -2,7 +2,7 @@ import { User } from "@prisma/client";
 import bcrypt from "bcrypt";
 import { ISign } from "../../interfaces/authInterfaces";
 import * as authRepository from "../../repositories/authRepository";
-import * as errorFactory from "../../utils/errorFactory";
+import { conflictError } from "../../utils/errorFactory";
 
 export async function signup(newUser: ISign) {
   await verifyIfEmailExists(newUser.email);
@@ -14,9 +14,7 @@ export async function signup(newUser: ISign) {
 async function verifyIfEmailExists(email: string) {
   const hasUser: User | null = await authRepository.findByEmail(email);
   if (hasUser !== null) {
-    throw errorFactory.conflictError(
-      "There's already a user registered with this email."
-    );
+    throw conflictError("There's already a user registered with this email.");
   }
 }
 
