@@ -28,3 +28,10 @@ export async function getCredential(req: Request, res: Response) {
   );
   res.status(200).send(credential);
 }
+
+export async function deleteCredential(req: Request, res: Response) {
+  const id: number = Number(req.params.id);
+  const userId: number = res.locals.payload.id;
+  await credentialService.deleteCredential(id, userId);
+  res.sendStatus(204);
+}

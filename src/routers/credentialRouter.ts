@@ -22,3 +22,8 @@ credentialRouter.get(
   tokenValidator,
   credentialController.getCredential
 );
+credentialRouter.delete(
+  "/credentials/:id",
+  tokenValidator,
+  credentialController.deleteCredential
+);

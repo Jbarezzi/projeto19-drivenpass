@@ -30,3 +30,7 @@ export async function getById(id: number) {
   });
   return credential;
 }
+
+export async function deleteCredential(id: number) {
+  await client.credential.delete({ where: { id } });
+}
