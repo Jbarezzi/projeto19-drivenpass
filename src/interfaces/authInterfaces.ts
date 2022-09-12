@@ -1,3 +1,3 @@
-import { Users } from "@prisma/client";
+import { User } from "@prisma/client";
 
-export type CreateUserData = Omit<Users, "id" | "createdAt">;
+export type ISign = Omit<User, "id" | "createdAt">;
